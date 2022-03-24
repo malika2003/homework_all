@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,16 +14,27 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.month4lesson1.App;
 import com.example.month4lesson1.R;
 import com.example.month4lesson1.databinding.FragmentHomeBinding;
+import com.example.month4lesson1.model.Task;
 import com.example.month4lesson1.ui.utils.OnClick;
+
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements OnClick {
 
     private FragmentHomeBinding binding;
     private AdapterLocal adapterLocal;
     private RecyclerView recyclerView;
+
+    private ViewPager pager;
+    private LinearLayout linearLayout ;
+    private TextView[] dot ;
+    private TextView txtNext , txtFinish , txtSkip ;
+    private int pos ;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +54,13 @@ public class HomeFragment extends Fragment implements OnClick {
         initListeners();
         fragmentListener();
         binding.localRv.setAdapter(adapterLocal);
+        adapterLocal.setList((ArrayList<Task>) App.appDataBase.taskDao().getAllTask());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapterLocal.setList((ArrayList<Task>) App.appDataBase.taskDao().getAllTask());
     }
 
     private void initRecycler() {
@@ -54,7 +74,9 @@ public class HomeFragment extends Fragment implements OnClick {
                     @Override
                     public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                         String text = result.getString("textKey");
-                        adapterLocal.addItem(text);
+                        String desc = result.getString("textDeskKey");
+                        adapterLocal.addItem(text, desc);
+                        App.appDataBase.taskDao().insertTask(new Task(text, desc));
                     }
                 });
     }
@@ -75,8 +97,8 @@ public class HomeFragment extends Fragment implements OnClick {
 
     @Override
     public void click(int pos) {
-        String text  = adapterLocal.getList().get(pos);
-        Toast.makeText(requireContext(), text,Toast.LENGTH_SHORT).show();
+        Task text  = adapterLocal.getList().get(pos);
+        Toast.makeText(requireContext(), (CharSequence) text,Toast.LENGTH_SHORT).show();
     }
 
     @Override

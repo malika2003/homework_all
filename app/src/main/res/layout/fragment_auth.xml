@@ -3,29 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    android:padding="20dp"
-    tools:context=".ui.detale.detaleFragment">
+    android:padding="30dp"
+    android:orientation="vertical"
+    tools:context=".ui.auth.AuthFragment">
 
     <EditText
-        android:textAlignment="center"
-        android:hint="введите текст"
-        android:id="@+id/text_et"
+            android:inputType="textEmailAddress"
+        android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:layout_marginBottom="20dp"
-        android:textAlignment="center"
-        android:hint="введите описание"
-        android:id="@+id/textdesc"
+        android:inputType="textPassword"
+        android:id="@+id/et_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
     <Button
-        android:text="@string/save"
-        android:id="@+id/saveBtn"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_register"
+        android:text="Вход или регисрация"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>

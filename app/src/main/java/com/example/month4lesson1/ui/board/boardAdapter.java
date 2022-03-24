@@ -12,8 +12,9 @@ import com.example.month4lesson1.databinding.BoardItemBinding;
 
 class boardAdapter extends RecyclerView.Adapter<boardAdapter.ViewHolder> {
     private BoardItemBinding binding;
-    private String[] sub_title = {" sub_title1"," sub_title2 " ,"sub_title3"};
-    private String[] titlelist = {"первый "," второрй " ,"трретий"};
+    private String[] sub_title = {" sub_title1"," Eating (also known as consuming) is the ingestion of food, typically to provide a heterotrophic organism with energy and to allow for growth. Animals and other heterotrophs must eat in order to survive — carnivores eat other animals, herbivores eat plants, omnivores consume a mixture of both " ,"Directed by Pierre Perifel (Kung Fu Panda 2, Monsters Vs. Aliens, Rise Of The Guardians)\n" +
+            "Starring Sam Rockwell, Marc Maron, Craig Robinson, Anthony Ramos, Awkwafina, Richard Ayoade, Zazie Beetz, Lilly Singh, Alex Borstein"};
+    private String[] titlelist = {"Yoga Time "," Eating Time " ,"Films Time"};
     private int[] images ={R.drawable.ic_sova, R.drawable.ic_food, R.drawable.ic_sova};
     @NonNull
     @Override

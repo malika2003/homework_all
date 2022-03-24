@@ -45,8 +45,10 @@ public class detaleFragment extends Fragment {
 
         private void sendData() {
                 String text = binding.textEt.getText().toString();
+                String desc = binding.textdesc.getText().toString();
                 Bundle bundle = new Bundle();
                 bundle.putString("textKey", text);
+                bundle.putString("textDeskKey", text);
                 getParentFragmentManager().setFragmentResult("key", bundle);
                 getParentFragmentManager().popBackStack();
         }

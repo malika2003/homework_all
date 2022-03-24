@@ -20,7 +20,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-50dp"
+        android:layout_marginBottom="-25dp"
         android:text="title"
         android:textColor="@color/black"
         android:textSize="30dp"
@@ -31,13 +31,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-
+        android:textAlignment="center"
         android:id="@+id/sub_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-100dp"
+        android:layout_marginBottom="-200dp"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

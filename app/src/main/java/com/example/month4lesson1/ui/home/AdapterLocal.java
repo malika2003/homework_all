@@ -10,19 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.month4lesson1.R;
+import com.example.month4lesson1.model.Task;
 import com.example.month4lesson1.ui.utils.OnClick;
 
 import java.util.ArrayList;
 
 public class AdapterLocal extends RecyclerView.Adapter<AdapterLocal.ViewHolder> {
-    private ArrayList<String> list =  new ArrayList<>();
+    private ArrayList<Task> list =  new ArrayList<>();
     private OnClick onClick;
 
     public AdapterLocal(OnClick onClick) {
         this.onClick = onClick;
     }
 
-    public ArrayList<String> getList(){
+    public ArrayList<Task> getList(){
         return list;
     }
 
@@ -31,13 +32,13 @@ public class AdapterLocal extends RecyclerView.Adapter<AdapterLocal.ViewHolder> 
         notifyItemRemoved(pos);
     }
 
-    public void  setList(ArrayList<String>list){
+    public void  setList(ArrayList< Task> list){
         this.list = list;
         notifyDataSetChanged();
     }
 
-    public void addItem(String item){
-        this.list.add(item);
+    public void addItem( Task task){
+        this.list.add(task);
         notifyDataSetChanged();
     }
 
@@ -59,14 +60,21 @@ public class AdapterLocal extends RecyclerView.Adapter<AdapterLocal.ViewHolder> 
         return list.size();
     }
 
+    public void addItem(String text, String desc) {
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
+        private TextView textViewDesk;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.tv_item);
+            textViewDesk = itemView.findViewById(R.id.tv_desk);
+
         }
-        public void onbind(String text, OnClick onClick){
-            textView.setText(text);
+        public void onbind(Task task, OnClick onClick){
+            textViewDesk.setText(task.getDescription());
+            textView.setText(task.getTitle() + task.getDescription());
             textView.setOnClickListener(v -> {
                 onClick.click(getAdapterPosition());
 

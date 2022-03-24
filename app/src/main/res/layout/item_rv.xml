@@ -3,15 +3,35 @@
     android:layout_width="match_parent"
     android:gravity="center"
     android:layout_margin="10dp"
+    android:orientation="vertical"
     android:layout_height="wrap_content">
+
     <TextView
+        android:textColor="@color/white"
         android:backgroundTint="@color/black"
         android:paddingHorizontal="130sp"
-        android:background="@color/purple_200"
+        android:background="@color/teal_700"
         android:textStyle="bold"
         android:textSize="40dp"
-        android:text="malika"
+        android:text="Malika"
         android:id="@+id/tv_item"
         android:layout_width="wrap_content"
+        android:stateListAnimator="@anim/animation"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        android:stateListAnimator="@anim/animation"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        android:paddingHorizontal="145sp"
+        android:background="@color/teal_700"
+        android:textStyle="italic"
+        android:textSize="30dp"
+        android:text="Malika"
+        android:id="@+id/tv_desk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
 </LinearLayout>
